@@ -5,6 +5,7 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { showTheme, showMenu } from "../redux/configSlice";
 import { LOGO_DARKTHEME, LOGO_LIGHTTHEME } from "../utils/constants";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const theme = useSelector((store) => store.config.isTheme);
@@ -19,11 +20,13 @@ const Header = () => {
         } w-full p-2`}
       >
         <div className="flex justify-between items-center">
-          <img
-            src={theme ? LOGO_LIGHTTHEME : LOGO_DARKTHEME}
-            alt="logo"
-            className="w-32"
-          />
+          <Link to="/">
+            <img
+              src={theme ? LOGO_LIGHTTHEME : LOGO_DARKTHEME}
+              alt="logo"
+              className="w-32"
+            />
+          </Link>
           <div className="flex items-center gap-4">
             <button
               onClick={() => dispatch(showTheme())}

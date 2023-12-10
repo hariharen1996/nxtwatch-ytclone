@@ -5,6 +5,8 @@ const videoSlice = createSlice({
   initialState: {
     videos: [],
     specificVideos: [],
+    trendingVideos: [],
+    gamingVideos: [],
   },
   reducers: {
     addVideos: (state, action) => {
@@ -13,8 +15,19 @@ const videoSlice = createSlice({
     addVideoDetails: (state, action) => {
       state.specificVideos = action.payload;
     },
+    addTrendingVideos: (state, action) => {
+      state.trendingVideos = action.payload;
+    },
+    addGamingVideos: (state, action) => {
+      state.gamingVideos = action.payload;
+    },
   },
 });
 
-export const { addVideos, addVideoDetails } = videoSlice.actions;
+export const {
+  addVideos,
+  addVideoDetails,
+  addTrendingVideos,
+  addGamingVideos,
+} = videoSlice.actions;
 export default videoSlice.reducer;

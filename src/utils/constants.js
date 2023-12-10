@@ -43,3 +43,6 @@ export const options = {
     Authorization: `Bearer ${JWT_TOKEN}`,
   },
 };
+
+export const TRENDING_API_URL = "https://apis.ccbp.in/videos/trending";
+export const GAMING_API_URL = "https://apis.ccbp.in/videos/gaming";

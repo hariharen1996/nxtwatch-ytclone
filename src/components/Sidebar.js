@@ -18,7 +18,7 @@ const Sidebar = () => {
                 to={item.navLink}
                 key={item.id}
                 className={({ isActive }) => {
-                  return isActive ? "text-red-700" : "text-gray-500";
+                  return isActive ? "text-[#ff0b37]" : "text-gray-500";
                 }}
               >
                 <li className="flex items-center gap-2 cursor-pointer my-5">

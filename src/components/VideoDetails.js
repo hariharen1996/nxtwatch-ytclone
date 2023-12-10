@@ -30,15 +30,15 @@ const VideoDetails = () => {
             <div className="flex flex-col sm:flex-row justify-between mx-2 sm:items-center pt-3">
               <div className="flex items-center gap-2">
                 <img
-                  src={channel.profile_image_url}
-                  alt={channel.name}
+                  src={channel?.profile_image_url}
+                  alt={channel?.name}
                   className="w-12 rounded-full"
                 />
 
                 <div>
-                  <p>{channel.name}</p>
+                  <p>{channel?.name}</p>
 
-                  <p>{channel.subscriber_count}</p>
+                  <p>{channel?.subscriber_count}</p>
                 </div>
                 <button className="bg-black text-white p-2 rounded-lg text-xs cursor-pointer">
                   Subscribe

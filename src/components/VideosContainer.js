@@ -21,7 +21,7 @@ const VideosContainer = () => {
             to={nav.navLink}
             className={({ isActive }) => {
               return isActive
-                ? "bg-red-700 text-white p-2 rounded-md"
+                ? "bg-[#ff0b37] text-white p-2 rounded-md"
                 : "bg-[#f1f1f1] text-black p-2 rounded-md";
             }}
           >
