@@ -28,3 +28,8 @@ export const navItems = [
     navIcon: <HiSave size={25} />,
   },
 ];
+
+export const LOGO_DARKTHEME =
+  "https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png";
+export const LOGO_LIGHTTHEME =
+  "https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png";

@@ -1,12 +1,14 @@
+import { Provider } from "react-redux";
 import "./App.css";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
+import AppRoutes from "./components/AppRoutes";
+import store from "./redux/store";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Sidebar />
+      <Provider store={store}>
+        <AppRoutes />
+      </Provider>
     </div>
   );
 }
