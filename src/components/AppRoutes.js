@@ -2,6 +2,7 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import VideosContainer from "./VideosContainer";
+import VideoDetails from "./VideoDetails";
 
 const appRouter = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <VideosContainer />,
+      },
+      {
+        path: "video-details/:id",
+        element: <VideoDetails />,
       },
     ],
   },

@@ -33,3 +33,13 @@ export const LOGO_DARKTHEME =
   "https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png";
 export const LOGO_LIGHTTHEME =
   "https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png";
+
+export const JWT_TOKEN = process.env.REACT_APP_JWT_TOKEN;
+export const VIDEO_API_URL = "https://apis.ccbp.in/videos";
+
+export const options = {
+  method: "GET",
+  headers: {
+    Authorization: `Bearer ${JWT_TOKEN}`,
+  },
+};

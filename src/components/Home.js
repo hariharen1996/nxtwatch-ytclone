@@ -9,11 +9,13 @@ const Home = () => {
   return (
     <>
       <Header />
-      <div className="w-full min-h-screen flex font-serif">
+      <div
+        className={`flex font-serif ${
+          theme ? "bg-white" : "bg-black"
+        } w-full min-h-screen`}
+      >
         <Sidebar />
-        <div className={`${theme ? "bg-white" : "bg-black"} w-full h-screen`}>
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
     </>
   );
