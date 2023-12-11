@@ -4,7 +4,7 @@ const videoSlice = createSlice({
   name: "videos",
   initialState: {
     videos: [],
-    specificVideos: [],
+    specificVideos: null,
     trendingVideos: [],
     gamingVideos: [],
   },
@@ -14,6 +14,7 @@ const videoSlice = createSlice({
     },
     addVideoDetails: (state, action) => {
       state.specificVideos = action.payload;
+      
     },
     addTrendingVideos: (state, action) => {
       state.trendingVideos = action.payload;

@@ -22,7 +22,7 @@ const TrendingContainer = () => {
       />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pb-10 w-full pl-2 pr-2">
         {videoData?.videos?.map((items) => (
-          <Link to={`video-details/${items.id}`} key={items.id}>
+          <Link to={`/${items.id}`} key={items.id}>
             <VideoItems data={items} />
           </Link>
         ))}

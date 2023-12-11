@@ -8,7 +8,7 @@ const useVideosDetails = (id) => {
   const getVideoDetails = async () => {
     const response = await fetch(`https://apis.ccbp.in/videos/${id}`, options);
     const data = await response.json();
-    dispatch(addVideoDetails(data.video_details));
+    dispatch(addVideoDetails([data.video_details]));
   };
 
   useEffect(() => {

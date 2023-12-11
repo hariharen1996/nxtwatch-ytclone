@@ -24,7 +24,7 @@ export const navItems = [
   {
     id: 4,
     navName: "Saved Videos",
-    navLink: "/savedvideos",
+    navLink: "/saved-videos",
     navIcon: <HiSave size={25} />,
   },
 ];
@@ -46,3 +46,5 @@ export const options = {
 
 export const TRENDING_API_URL = "https://apis.ccbp.in/videos/trending";
 export const GAMING_API_URL = "https://apis.ccbp.in/videos/gaming";
+
+export const SAVEDERROR_IMAGE_URL = "https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"

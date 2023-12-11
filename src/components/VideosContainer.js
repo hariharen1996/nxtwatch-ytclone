@@ -8,7 +8,6 @@ import VideoItems from "./VideoItems";
 const VideosContainer = () => {
   const videoData = useSelector((store) => store.video.videos);
   useVideosData();
-  console.log(videoData);
 
   if (!videoData.videos) return null;
 
@@ -31,7 +30,7 @@ const VideosContainer = () => {
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-10 pb-10 w-full">
         {videoData?.videos?.map((items) => (
-          <Link to={`video-details/${items.id}`} key={items.id}>
+          <Link to={`/${items.id}`} key={items.id}>
             <VideoItems data={items} />
           </Link>
         ))}
