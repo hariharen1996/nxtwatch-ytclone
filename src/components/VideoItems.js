@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { IoTime } from "react-icons/io5";
 import { AiOutlineLike } from "react-icons/ai";
+import { formatDistanceToNow } from "date-fns";
 
 const VideoItems = ({ data }) => {
   const theme = useSelector((store) => store.config.isTheme);
@@ -36,7 +37,7 @@ const VideoItems = ({ data }) => {
               </div>
               <div className="flex items-center gap-2">
                 <span>{<IoTime size={20} />}</span>
-                {published_at}
+                {formatDistanceToNow(new Date(published_at))}
               </div>
             </div>
           </div>

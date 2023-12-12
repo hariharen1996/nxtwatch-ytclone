@@ -7,10 +7,7 @@ import { Link } from "react-router-dom";
 import Banner from "./Banner";
 
 const TrendingContainer = () => {
-  const theme = useSelector((store) => store.config.isTheme);
   const videoData = useSelector((store) => store.video.trendingVideos);
-  const headerBg = theme ? "bg-[#d7dfe9]" : "bg-[#212121]";
-  const radiusBg = theme ? "bg-[#e2e8f0]" : "bg-[#181818]";
 
   useTrendingVideos();
 

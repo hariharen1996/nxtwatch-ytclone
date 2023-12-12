@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-  createBrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import VideosContainer from "./VideosContainer";
 import VideoDetails from "./VideoDetails";
@@ -20,9 +14,9 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />}>
           <Route index element={<VideosContainer />} />
           <Route path=":id" element={<VideoDetails />} />
-          <Route path="/trending" element={<TrendingContainer />} />
-          <Route path="/gaming" element={<GamingContainer />} />
-          <Route path="/saved-videos" element={<SavedVideosContainer />} />
+          <Route path="trending" element={<TrendingContainer />} />
+          <Route path="gaming" element={<GamingContainer />} />
+          <Route path="saved-videos" element={<SavedVideosContainer />} />
         </Route>
       </Routes>
     </BrowserRouter>

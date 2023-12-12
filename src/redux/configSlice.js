@@ -4,8 +4,9 @@ const configSlice = createSlice({
   name: "configuration",
   initialState: {
     isTheme: true,
-    isMenu: true,
+    isMenu: false,
     isUser: true,
+    isYtSearch: true,
   },
   reducers: {
     showTheme: (state) => {
@@ -20,5 +21,6 @@ const configSlice = createSlice({
   },
 });
 
-export const { showTheme, showMenu, showUser } = configSlice.actions;
+export const { showTheme, showMenu, showUser, showYoutube } =
+  configSlice.actions;
 export default configSlice.reducer;

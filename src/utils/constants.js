@@ -47,4 +47,8 @@ export const options = {
 export const TRENDING_API_URL = "https://apis.ccbp.in/videos/trending";
 export const GAMING_API_URL = "https://apis.ccbp.in/videos/gaming";
 
-export const SAVEDERROR_IMAGE_URL = "https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
+export const SAVEDERROR_IMAGE_URL =
+  "https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png";
+
+export const SEARCH_IMAGE_URL =
+  "https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png";

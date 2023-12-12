@@ -1,40 +1,44 @@
 import React from "react";
-import { navItems } from "../utils/constants";
-import { Link, NavLink } from "react-router-dom";
+import { SEARCH_IMAGE_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 import useVideosData from "../hooks/useVideosData";
 import { useSelector } from "react-redux";
 import VideoItems from "./VideoItems";
+import PageItemsError from "./PageItemsError";
+import SearchBar from "./SearchBar";
 
 const VideosContainer = () => {
   const videoData = useSelector((store) => store.video.videos);
+  const data = useSelector((store) => store.search?.searchData);
+
   useVideosData();
 
   if (!videoData.videos) return null;
-
   return (
-    <div className="w-full mx-2 my-2">
-      <div className="flex flex-wrap items-center justify-center pt-5 w-full gap-2 cursor-pointer">
-        {navItems.map((nav) => (
-          <NavLink
-            key={nav.id}
-            to={nav.navLink}
-            className={({ isActive }) => {
-              return isActive
-                ? "bg-[#ff0b37] text-white p-2 rounded-md"
-                : "bg-[#f1f1f1] text-black p-2 rounded-md";
-            }}
-          >
-            <button className="mx-2 text-sm sm:text-md">{nav.navName}</button>
-          </NavLink>
-        ))}
+    <div className="z-10 w-full mx-2 my-2">
+      <div>
+        <div className="relative z-10 top-0 h-20">
+          <SearchBar />
+        </div>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-10 pb-10 w-full">
-        {videoData?.videos?.map((items) => (
-          <Link to={`/${items.id}`} key={items.id}>
-            <VideoItems data={items} />
-          </Link>
-        ))}
-      </div>
+      {data?.videos?.length !== 0 ? (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-10 pb-10 w-full">
+          {data?.videos?.map((items) => (
+            <Link to={`/${items.id}`} key={items.id}>
+              <VideoItems data={items} />
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div className="pt-2 flex justify-center items-center">
+          <PageItemsError
+            title={"No Search Results Found"}
+            image={SEARCH_IMAGE_URL}
+            altText="no videos"
+            desc="Try different key words or remove search filter"
+          />
+        </div>
+      )}
     </div>
   );
 };

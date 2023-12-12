@@ -1,5 +1,4 @@
 import React from "react";
-import { AiFillFire } from "react-icons/ai";
 import { useSelector } from "react-redux";
 
 const Banner = ({ icons, title }) => {
