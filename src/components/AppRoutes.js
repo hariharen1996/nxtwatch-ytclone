@@ -1,27 +1,45 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import VideosContainer from "./VideosContainer";
-import VideoDetails from "./VideoDetails";
-import TrendingContainer from "./TrendingContainer";
-import GamingContainer from "./GamingContainer";
-import SavedVideosContainer from "./SavedVideosContainer";
-import Login from "./Login";
-import Signup from "./Signup";
 import ProtectedRouter from "./ProtectedRouter";
 import RouteError from "./RouteError";
+import SuspenseLoader from "./SuspenseLoader";
+
+const Home = lazy(() => import("./Home"));
+const VideosContainer = lazy(() => import("./VideosContainer"));
+const VideoDetails = lazy(() => import("./VideoDetails"));
+const TrendingContainer = lazy(() => import("./TrendingContainer"));
+const GamingContainer = lazy(() => import("./GamingContainer"));
+const SavedVideosContainer = lazy(() => import("./SavedVideosContainer"));
+const Login = lazy(() => import("./Login"));
+const Signup = lazy(() => import("./Signup"));
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route index element={<VideosContainer />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<SuspenseLoader />}>
+              <Home />
+            </Suspense>
+          }
+        >
+          <Route
+            index
+            element={
+              <Suspense fallback={<SuspenseLoader />}>
+                <VideosContainer />
+              </Suspense>
+            }
+          />
           <Route
             path=":id"
             element={
               <ProtectedRouter>
-                <VideoDetails />
+                <Suspense fallback={<SuspenseLoader />}>
+                  <VideoDetails />
+                </Suspense>
               </ProtectedRouter>
             }
           />
@@ -29,7 +47,9 @@ const AppRoutes = () => {
             path="trending"
             element={
               <ProtectedRouter>
-                <TrendingContainer />
+                <Suspense fallback={<SuspenseLoader />}>
+                  <TrendingContainer />
+                </Suspense>
               </ProtectedRouter>
             }
           />
@@ -37,7 +57,9 @@ const AppRoutes = () => {
             path="gaming"
             element={
               <ProtectedRouter>
-                <GamingContainer />
+                <Suspense fallback={<SuspenseLoader />}>
+                  <GamingContainer />
+                </Suspense>
               </ProtectedRouter>
             }
           />
@@ -45,12 +67,28 @@ const AppRoutes = () => {
             path="saved-videos"
             element={
               <ProtectedRouter>
-                <SavedVideosContainer />
+                <Suspense fallback={<SuspenseLoader />}>
+                  <SavedVideosContainer />
+                </Suspense>
               </ProtectedRouter>
             }
           />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/login"
+            element={
+              <Suspense fallback={<SuspenseLoader />}>
+                <Login />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <Suspense fallback={<SuspenseLoader />}>
+                <Signup />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<RouteError />} />
         </Route>
       </Routes>

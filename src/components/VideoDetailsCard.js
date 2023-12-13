@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { FaShare } from "react-icons/fa";
 
@@ -8,11 +8,16 @@ const VideoDetailsCard = ({ data, isSaved, isUnSaved, isVideosPresent }) => {
   const { channel, description, published_at, video_url, view_count, title } =
     data;
   const theme = useSelector((store) => store.config.isTheme);
-
+  console.log(video_url);
   return (
     <>
       <div className="w-full">
-        <ReactPlayer url={video_url} width="100%" controls />
+        <ReactPlayer
+          url={video_url}
+          width="100%"
+          origin="http://localhost:3000/"
+          controls
+        />
       </div>
       <div className="pt-2">
         <div

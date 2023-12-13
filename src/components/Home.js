@@ -3,6 +3,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Home = () => {
   const theme = useSelector((store) => store.config.isTheme);

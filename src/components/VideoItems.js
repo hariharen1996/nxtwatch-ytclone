@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { IoTime } from "react-icons/io5";
 import { AiOutlineLike } from "react-icons/ai";
 import { formatDistanceToNow } from "date-fns";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const VideoItems = ({ data }) => {
   const theme = useSelector((store) => store.config.isTheme);
@@ -21,7 +22,15 @@ const VideoItems = ({ data }) => {
           theme ? "text-black" : "text-white"
         } font-serif text-xs sm:text-sm`}
       >
-        <img src={thumbnail_url} alt={title} className="w-full" />
+        <LazyLoadImage
+          wrapperProps={{
+            style: { transitionDelay: "1s" },
+          }}
+          effect="blur"
+          src={thumbnail_url}
+          alt={title}
+          className="w-full"
+        />
         <p className="my-2 font-bold">{title}</p>
 
         <div className="flex items-start gap-2">

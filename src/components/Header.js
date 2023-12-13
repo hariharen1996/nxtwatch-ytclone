@@ -90,7 +90,7 @@ const Header = () => {
             )}
             {authuser && (
               <button
-                className="text-[#ff0b37] cursor-pointer"
+                className={`text-[#ff0b37] cursor-pointer`}
                 onClick={handleSignout}
               >
                 <Link to="/login">
