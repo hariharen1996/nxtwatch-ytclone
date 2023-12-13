@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   const theme = useSelector((store) => store.config.isTheme);
+
   return (
     <>
       <Header />

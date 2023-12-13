@@ -5,17 +5,47 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { showTheme, showMenu } from "../redux/configSlice";
 import { LOGO_DARKTHEME, LOGO_LIGHTTHEME, navItems } from "../utils/constants";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { useEffect } from "react";
+import { addUserInfo, removeUser } from "../redux/userSlice";
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Header = () => {
   const theme = useSelector((store) => store.config.isTheme);
   const menu = useSelector((store) => store.config.isMenu);
+  const authuser = useSelector((store) => store.users);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  console.log(authuser);
+
+  const handleSignout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((error) => {});
+  };
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+        const { uid, displayName, email, photoURL } = user;
+        dispatch(addUserInfo({ uid, displayName, email, photoURL }));
+      } else {
+        dispatch(removeUser());
+      }
+    });
+
+    return () => unSubscribe();
+  }, []);
 
   return (
     <>
       <header
-        className={` shadow-2xl ${
+        className={`shadow-2xl ${
           theme ? "bg-[#f1f1f1]" : "bg-[#333]"
         } w-full p-2`}
       >
@@ -27,7 +57,7 @@ const Header = () => {
               className="w-32"
             />
           </Link>
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-4 sm:gap-3">
             <button
               onClick={() => dispatch(showTheme())}
               className={` ${
@@ -36,6 +66,7 @@ const Header = () => {
             >
               <MdLightMode size={20} />
             </button>
+
             <button
               onClick={() => dispatch(showMenu())}
               className={`${
@@ -48,13 +79,27 @@ const Header = () => {
                 <AiFillCloseSquare size={20} />
               )}
             </button>
-            <button
-              className={` ${
-                theme ? "text-black" : "text-white"
-              } cursor-pointer`}
-            >
-              <BsFillPersonLinesFill size={20} />
-            </button>
+            {!authuser && (
+              <button
+                className={` ${
+                  theme ? "text-black" : "text-white"
+                } cursor-pointer`}
+              >
+                <Link to="/login">
+                  <BsFillPersonLinesFill size={20} />
+                </Link>
+              </button>
+            )}
+            {authuser && (
+              <button
+                className="text-[#ff0b37] cursor-pointer"
+                onClick={handleSignout}
+              >
+                <Link to="/login">
+                  <FaSignOutAlt size={20} />
+                </Link>
+              </button>
+            )}
           </div>
         </div>
       </header>
@@ -62,9 +107,9 @@ const Header = () => {
         <div
           className={`block sm:hidden transition-all duration-300 ${
             theme ? "bg-[#f1f1f1]" : "bg-[#333]"
-          } w-full pt-3 p-2 h-16`}
+          } w-full pt-3 p-2 h-25 xs:h-16`}
         >
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-4">
             {navItems.map((nav) => (
               <NavLink
                 key={nav.id}
