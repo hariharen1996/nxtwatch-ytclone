@@ -5,11 +5,14 @@ import SavedVideosItems from "./SavedVideosItems";
 import { Link } from "react-router-dom";
 import PageItemsError from "./PageItemsError";
 import { SAVEDERROR_IMAGE_URL } from "../utils/constants";
+import Loading from "./Loading";
 
 const SavedVideosContainer = () => {
   const savedVideosData = useSelector((store) => store.saved?.savedVideos);
 
-  return (
+  return !savedVideosData ? (
+    <Loading />
+  ) : (
     <div className="w-full font-serif">
       <Banner
         icons={<HiSave size={25} className="text-[#ff0b37]" />}

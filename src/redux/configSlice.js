@@ -6,7 +6,7 @@ const configSlice = createSlice({
     isTheme: true,
     isMenu: false,
     isUser: true,
-    isYtSearch: true,
+    isLoading: false,
   },
   reducers: {
     showTheme: (state) => {
@@ -18,9 +18,12 @@ const configSlice = createSlice({
     showUser: (state) => {
       state.isUser = !state.isUser;
     },
+    showLoading: (state) => {
+      state.isLoading = !state.isLoading;
+    },
   },
 });
 
-export const { showTheme, showMenu, showUser, showYoutube } =
+export const { showTheme, showMenu, showUser, showLoading } =
   configSlice.actions;
 export default configSlice.reducer;

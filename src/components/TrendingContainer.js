@@ -5,13 +5,16 @@ import useTrendingVideos from "../hooks/useTrendingVideos";
 import VideoItems from "./VideoItems";
 import { Link } from "react-router-dom";
 import Banner from "./Banner";
+import Loading from "./Loading";
 
 const TrendingContainer = () => {
   const videoData = useSelector((store) => store.video.trendingVideos);
 
   useTrendingVideos();
 
-  return (
+  return !videoData.videos ? (
+    <Loading />
+  ) : (
     <div className="w-full">
       <Banner
         icons={<AiFillFire size={25} className="text-[#ff0b37]" />}

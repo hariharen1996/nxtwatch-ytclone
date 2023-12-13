@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  createBrowserRouter,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import VideosContainer from "./VideosContainer";
 import VideoDetails from "./VideoDetails";
@@ -15,6 +9,7 @@ import SavedVideosContainer from "./SavedVideosContainer";
 import Login from "./Login";
 import Signup from "./Signup";
 import ProtectedRouter from "./ProtectedRouter";
+import RouteError from "./RouteError";
 
 const AppRoutes = () => {
   return (
@@ -56,6 +51,7 @@ const AppRoutes = () => {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="*" element={<RouteError />} />
         </Route>
       </Routes>
     </BrowserRouter>

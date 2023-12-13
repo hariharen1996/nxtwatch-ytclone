@@ -42,12 +42,11 @@ const Signup = () => {
             const { uid, email, displayName, photoURL } = auth.currentUser;
             dispatch(addUserInfo({ uid, email, displayName, photoURL }));
 
-            navigate("/");
+            navigate("/login");
           })
           .catch((error) => {
             // An error occurred
             // ...
-            console.log(error);
           });
       })
       .catch((error) => {
@@ -121,7 +120,7 @@ const Signup = () => {
             <p className={`${theme ? "text-black" : "text-white"}  my-2 `}>
               Already Registered?
               <Link to="/login">
-                <span className="underline cursor-pointer">Login</span>
+                <span className="underline cursor-pointer"> Login</span>
               </Link>
             </p>
           </form>

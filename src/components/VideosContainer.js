@@ -6,16 +6,28 @@ import { useSelector } from "react-redux";
 import VideoItems from "./VideoItems";
 import PageItemsError from "./PageItemsError";
 import SearchBar from "./SearchBar";
+import Banner from "./Banner";
+import { FaUserCircle } from "react-icons/fa";
+import Loading from "./Loading";
 
 const VideosContainer = () => {
   const videoData = useSelector((store) => store.video.videos);
   const data = useSelector((store) => store.search?.searchData);
+  const authuser = useSelector((store) => store?.users);
 
   useVideosData();
 
-  if (!videoData.videos) return null;
+  if (!videoData.videos) return <Loading />;
   return (
     <div className="z-10 w-full mx-2 my-2">
+      {authuser && (
+        <div>
+          <Banner
+            title={authuser?.displayName}
+            icons={<FaUserCircle size={25} className="text-[#ff0b37]" />}
+          />
+        </div>
+      )}
       <div>
         <div className="relative z-10 top-0 h-20">
           <SearchBar />

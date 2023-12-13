@@ -5,12 +5,15 @@ import GamingItems from "./GamingItems";
 import Banner from "./Banner";
 import { SiYoutubegaming } from "react-icons/si";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 const GamingContainer = () => {
   const data = useSelector((store) => store.video.gamingVideos);
   useGamingVideos();
 
-  return (
+  return !data.videos ? (
+    <Loading />
+  ) : (
     <div className="w-full">
       <Banner
         icons={<SiYoutubegaming size={25} className="text-[#ff0b37]" />}

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import VideoDetailsCard from "./VideoDetailsCard";
 import { addSavedVideos } from "../redux/savedVideosSlice";
+import Loading from "./Loading";
 
 const VideoDetails = () => {
   const { id } = useParams();
@@ -23,7 +24,9 @@ const VideoDetails = () => {
     dispatch(addSavedVideos(unSavedVideos));
   };
 
-  return (
+  return !specificVideos ? (
+    <Loading />
+  ) : (
     <div className="w-screen">
       {specificVideos?.map((item) => (
         <VideoDetailsCard

@@ -52,3 +52,8 @@ export const SAVEDERROR_IMAGE_URL =
 
 export const SEARCH_IMAGE_URL =
   "https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png";
+
+export const NOTFOUND_LIGHTURL =
+  "https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png";
+export const NOTFOUND_DARKURL =
+  "https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png";

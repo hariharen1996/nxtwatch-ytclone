@@ -86,7 +86,7 @@ const Login = () => {
             <p className={`${theme ? "text-black" : "text-white"}  my-2 `}>
               New to NxtWatch?
               <Link to="/signup">
-                <span className="underline cursor-pointer">SignUp</span>
+                <span className="underline cursor-pointer"> SignUp</span>
               </Link>
             </p>
           </form>
