@@ -6,6 +6,8 @@ import Banner from "./Banner";
 import { SiYoutubegaming } from "react-icons/si";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
+import Footer from "./Footer";
+import ScrollTop from "./ScrollTop";
 
 const GamingContainer = () => {
   const data = useSelector((store) => store.video.gamingVideos);
@@ -26,6 +28,8 @@ const GamingContainer = () => {
           </Link>
         ))}
       </div>
+      <ScrollTop />
+      <Footer />
     </div>
   );
 };

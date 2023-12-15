@@ -8,7 +8,6 @@ const VideoDetailsCard = ({ data, isSaved, isUnSaved, isVideosPresent }) => {
   const { channel, description, published_at, video_url, view_count, title } =
     data;
   const theme = useSelector((store) => store.config.isTheme);
-  console.log(video_url);
   return (
     <>
       <div className="w-full">

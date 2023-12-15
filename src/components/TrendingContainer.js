@@ -6,6 +6,8 @@ import VideoItems from "./VideoItems";
 import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import Loading from "./Loading";
+import Footer from "./Footer";
+import ScrollTop from "./ScrollTop";
 
 const TrendingContainer = () => {
   const videoData = useSelector((store) => store.video.trendingVideos);
@@ -27,6 +29,8 @@ const TrendingContainer = () => {
           </Link>
         ))}
       </div>
+      <ScrollTop />
+      <Footer />
     </div>
   );
 };

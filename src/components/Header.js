@@ -10,7 +10,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useEffect } from "react";
 import { addUserInfo, removeUser } from "../redux/userSlice";
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt, FaYoutube } from "react-icons/fa";
 
 const Header = () => {
   const theme = useSelector((store) => store.config.isTheme);
@@ -48,13 +48,16 @@ const Header = () => {
         } w-full p-2`}
       >
         <div className="flex justify-between items-center">
-          <Link to="/">
-            <img
-              src={theme ? LOGO_LIGHTTHEME : LOGO_DARKTHEME}
-              alt="logo"
-              className="w-32"
-            />
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link to="/">
+              <img
+                src={theme ? LOGO_LIGHTTHEME : LOGO_DARKTHEME}
+                alt="logo"
+                className="w-32"
+              />
+            </Link>
+            <FaYoutube size={30} className="text-[#ff0b37] animate-bounce" />
+          </div>
           <div className="flex items-center gap-4 sm:gap-3">
             <button
               onClick={() => dispatch(showTheme())}

@@ -9,6 +9,8 @@ import SearchBar from "./SearchBar";
 import Banner from "./Banner";
 import { FaUserCircle } from "react-icons/fa";
 import Loading from "./Loading";
+import Footer from "./Footer";
+import ScrollTop from "./ScrollTop";
 
 const VideosContainer = () => {
   const videoData = useSelector((store) => store.video.videos);
@@ -51,6 +53,8 @@ const VideosContainer = () => {
           />
         </div>
       )}
+      <ScrollTop />
+      <Footer />
     </div>
   );
 };

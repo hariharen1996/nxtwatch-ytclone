@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import PageItemsError from "./PageItemsError";
 import { SAVEDERROR_IMAGE_URL } from "../utils/constants";
 import Loading from "./Loading";
+import ScrollTop from "./ScrollTop";
 
 const SavedVideosContainer = () => {
   const savedVideosData = useSelector((store) => store.saved?.savedVideos);
@@ -37,6 +38,7 @@ const SavedVideosContainer = () => {
           />
         </div>
       )}
+      <ScrollTop />
     </div>
   );
 };
