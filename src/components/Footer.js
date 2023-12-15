@@ -1,4 +1,3 @@
-import { FaUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 const Footer = () => {

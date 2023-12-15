@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-const Banner = ({ icons, title, user }) => {
+const Banner = ({ icons, title }) => {
   const theme = useSelector((store) => store.config.isTheme);
   const headerBg = theme ? "bg-[#d7dfe9]" : "bg-[#212121]";
   const radiusBg = theme ? "bg-[#e2e8f0]" : "bg-[#181818]";

@@ -4,6 +4,7 @@ import videoSlice from "./videoSlice";
 import savedVideosSlice from "./savedVideosSlice";
 import searchSlice from "./searchSlice";
 import userSlice from "./userSlice";
+import chatSlice from "./chatSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     saved: savedVideosSlice,
     search: searchSlice,
     users: userSlice,
+    chat: chatSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

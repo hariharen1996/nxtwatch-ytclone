@@ -1,4 +1,10 @@
-import { AiFillHome, AiFillFire } from "react-icons/ai";
+import {
+  AiFillHome,
+  AiFillFire,
+  AiFillLike,
+  AiFillDislike,
+} from "react-icons/ai";
+import { FaShare } from "react-icons/fa";
 import { HiSave } from "react-icons/hi";
 import { SiYoutubegaming } from "react-icons/si";
 
@@ -57,3 +63,21 @@ export const NOTFOUND_LIGHTURL =
   "https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png";
 export const NOTFOUND_DARKURL =
   "https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png";
+
+export const ICONS_LISTS = [
+  {
+    id: 1,
+    name: "like",
+    icons: <AiFillLike />,
+  },
+  {
+    id: 2,
+    name: "Dislike",
+    icons: <AiFillDislike />,
+  },
+  {
+    id: 3,
+    name: "Share",
+    icons: <FaShare />,
+  },
+];
